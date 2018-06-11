@@ -26,3 +26,6 @@ Route::get('/users/delete/{id}', 'UserController@delete');
 Route::get('/users/edit/{id}', 'UserController@showed');
 
 Route::post('/users/edit/{id}', 'UserController@update');
+
+Route::get('search', 'EloquentController@index')->name('search');
+Route::get('search/getdata', 'EloquentController@getdata')->name('search.getdata');

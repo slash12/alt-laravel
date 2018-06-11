@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Yajra\Datatables\Datatables;
-use App\User;
+
 
 class HomeController extends Controller
 {
@@ -25,14 +24,8 @@ class HomeController extends Controller
      */
     
 
-    // public function getDatabase()
-    // {
-    //     return Datatables::of(User::query())->make(true);
-    // }
-
     public function index()
     {
-        $user = Post::all();
-        return view('post.home', compact('user'));
+        return view('home');
     }
 }
