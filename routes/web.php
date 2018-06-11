@@ -17,22 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 
 Route::resource('users', 'UserController');
+
+Route::get('/users/delete/{id}', 'UserController@delete');
+
+Route::get('/users/edit/{id}', 'UserController@showed');
+
+Route::post('/users/edit/{id}', 'UserController@update');
