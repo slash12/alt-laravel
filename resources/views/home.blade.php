@@ -9,14 +9,13 @@
 </div>
 @endif
 
-        
-    
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Users</div>
                     You are logged in!
+                    <a href="/search">Search</a>
                 </div>
             </div>
         </div>

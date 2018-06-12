@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Storage;
 use App\user;
 use DB;
 use Illuminate\Support\Facades\Input;
+use Auth;
 
 class UserController extends Controller
 {
@@ -21,7 +22,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users= user::paginate(2);
+        // $users= user::paginate(2);
+        $users = DB::table('users')->get();
         return view('users.index')->with('users',$users);
     }
     /**
@@ -70,5 +72,11 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     public function logout()
+     {
+        Auth::logout();
+        return redirect('/register');
+     }
    
 }

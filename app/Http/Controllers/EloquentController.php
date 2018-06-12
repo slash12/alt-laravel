@@ -16,7 +16,7 @@ class EloquentController extends Controller
 
     function getdata()
     {
-     $users = User::select('name', 'email');
+     $users = User::select('id', 'name', 'email');
      return Datatables::of($users)->make(true);
     }
 }

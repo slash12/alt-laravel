@@ -28,4 +28,11 @@ Route::get('/users/edit/{id}', 'UserController@showed');
 Route::post('/users/edit/{id}', 'UserController@update');
 
 Route::get('search', 'EloquentController@index')->name('search');
+
+Route::get('search', 'UserController@index');
+
 Route::get('search/getdata', 'EloquentController@getdata')->name('search.getdata');
+
+Route::get('users/show/{id}', 'UserController@show');
+
+Route::get('/logout', 'UserController@logout');
