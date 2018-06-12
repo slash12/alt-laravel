@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Admin | User Configuration</title>
+    <link rel="icon" href="https://d30y9cdsu7xlg0.cloudfront.net/png/99161-200.png"> 
+    
 </head>
 <body>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
@@ -18,15 +20,6 @@
         <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
         <script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap.min.js"></script>
 
-        
-        
-            
-        
-        
-        
-        
-        
-    
         <h1>User List</h1>
         <a href="/logout">Add user</a>
     
@@ -65,7 +58,8 @@
     
     <script type="text/javascript">
              $('#tlbuser').DataTable({
-                responsive: true
+                responsive: true,
+                "pageLength": 3
              });
        
         function Confirm(text)

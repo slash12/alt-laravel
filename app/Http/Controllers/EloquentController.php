@@ -14,9 +14,9 @@ class EloquentController extends Controller
      return view('users.index');
     }
 
-    function getdata()
-    {
-     $users = User::select('id', 'name', 'email');
-     return Datatables::of($users)->make(true);
-    }
+    // function getdata()
+    // {
+    //  $users = User::select('id', 'name', 'email');
+    //  return Datatables::of($users)->make(true);
+    // }
 }
