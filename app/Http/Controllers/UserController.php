@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\user;
@@ -22,7 +23,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        // $users= user::paginate(2);
+        //$users= user::paginate(2);
         $users = DB::table('users')->get();
         return view('users.index')->with('users',$users);
     }
@@ -36,17 +37,16 @@ class UserController extends Controller
         
     }
 
-    public function delete($id)
-    {
-        DB::table('users')->where('id', $id)->delete();
-        return redirect('/users');
-    }
-
-
     public function show($id)
     {
         $user = user::find($id);
        return view('users.show')->with('users', $user);
+    }
+
+    function delete($id)
+    {
+        DB::table('users')->where('id',$id)->delete();
+        return redirect('/users');
     }
 
     public function showed($id)
@@ -72,11 +72,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-     public function logout()
-     {
-        Auth::logout();
-        return redirect('/register');
-     }
-   
+    public function logout()
+    {
+       Auth::logout();
+       return redirect('/register');
+    }
 }

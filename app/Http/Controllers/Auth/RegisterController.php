@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Mail\Ordershipped;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request;
+
+
 
 class RegisterController extends Controller
 {
@@ -50,6 +55,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -63,10 +69,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $hashed_random_password = Hash::make(str_random(8));
+        self::sendEmail();
         return User::create([
-            'name' => $data['name'],
+            'name' => $data['name'],           
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'username' => $data['username']
+
+            
         ]);
+        
     }
+
+    public function sendEmail()
+    {
+        
+        Mail::send(['text'=>'emails.email-shipped'],['name','Alt'],function($message){
+            $message->to('altteam123456@gmail.com','To AltTeam')->subject('Test Email');
+            $message->from('example@gmail.com','AltTeam');
+
+
+        });
+          
+    }
+
 }

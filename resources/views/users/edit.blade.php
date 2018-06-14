@@ -1,6 +1,4 @@
-@extends('layouts.app')
 
-@section('content')
 <a href="/users" class="btn btn-default"> Return Back</a>
 <form method="POST" action="/users/edit/{{$users->id}}">
     {{ csrf_field() }}
@@ -8,5 +6,3 @@
         E-mail <input type="email" name="txtemail" id="txtemail" value="{{$users->email}}" /><br />
         <input type="submit" name="btnsub" id="btnsub" Value="submit" />
 </form>
-    
-@endsection

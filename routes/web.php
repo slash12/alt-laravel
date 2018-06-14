@@ -36,3 +36,10 @@ Route::get('search/getdata', 'EloquentController@getdata')->name('search.getdata
 Route::get('users/show/{id}', 'UserController@show');
 
 Route::get('/logout', 'UserController@logout');
+
+Route::get('/logoutform', function () {
+    Auth::logout();
+    return redirect('/login');
+});
+
+Route::get('/sendEmail','mailController@sendEmail');

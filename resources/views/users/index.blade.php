@@ -30,6 +30,9 @@
                         Name
                     </th> 
                     <th>
+                        Username
+                    </th>
+                    <th>
                         Email
                     </th>
                     <th>
@@ -42,6 +45,9 @@
                 <tr>
                     <td>
                         {{$user->name}}
+                    </td>
+                    <td>
+                        {{$user->username}}
                     </td>
                     <td>
                         {{$user->email}}
